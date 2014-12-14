@@ -14,6 +14,15 @@
 class WP_Uploads_Stats {
 
 	/**
+	 * Path to the plugin.
+	 *
+	 * @access protected
+	 *
+	 * @var string
+	 */
+	protected $plugin_path;
+
+	/**
 	 * Constructor.
 	 *	
 	 * Initializes and hooks the plugin functionality.
@@ -22,6 +31,31 @@ class WP_Uploads_Stats {
 	 */
 	public function __construct() {
 
+		// set the path to the plugin main directory
+		$this->set_plugin_path(dirname(__FILE__));
+
+	}
+
+	/**
+	 * Retrieve the path to the main plugin directory.
+	 *
+	 * @access public
+	 *
+	 * @return string $plugin_path The path to the main plugin directory.
+	 */
+	public function get_plugin_path() {
+		return $this->plugin_path;
+	}
+
+	/**
+	 * Modify the path to the main plugin directory.
+	 *
+	 * @access protected
+	 *
+	 * @param string $plugin_path The new path to the main plugin directory.
+	 */
+	protected function set_plugin_path($plugin_path) {
+		$this->plugin_path = $plugin_path;
 	}
 
 }
