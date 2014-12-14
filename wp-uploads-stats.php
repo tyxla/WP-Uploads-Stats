@@ -23,6 +23,15 @@ class WP_Uploads_Stats {
 	protected $plugin_path;
 
 	/**
+	 * Plugin assets base URL.
+	 *
+	 * @access protected
+	 *
+	 * @var string
+	 */
+	protected $assets_url;
+
+	/**
 	 * Constructor.
 	 *	
 	 * Initializes and hooks the plugin functionality.
@@ -77,12 +86,34 @@ class WP_Uploads_Stats {
 	}
 
 	/**
+	 * Retrieve the plugin assets base URL.
+	 *
+	 * @access public
+	 *
+	 * @return string $assets_url The plugin assets base URL.
+	 */
+	public function get_assets_url() {
+		return $this->assets_url;
+	}
+
+	/**
+	 * Modify the plugin assets base URL.
+	 *
+	 * @access protected
+	 *
+	 * @param string $assets_url The new plugin assets base URL.
+	 */
+	protected function set_assets_url($assets_url) {
+		$this->assets_url = $assets_url;
+	}
+
+	/**
 	 * Enqueue main plugin scripts.
 	 *
 	 * @access public
 	 */
 	public function enqueue_scripts() {
-		
+		wp_enqueue_script('wp-uploads-stats', $this->get_assets_url() . 'js/main.js', array('jquery'));
 	}
 
 	/**
@@ -91,7 +122,7 @@ class WP_Uploads_Stats {
 	 * @access public
 	 */
 	public function enqueue_styles() {
-		
+		wp_enqueue_style('wp-uploads-stats-main', $this->get_assets_url() . 'css/main.css');
 	}
 
 }
