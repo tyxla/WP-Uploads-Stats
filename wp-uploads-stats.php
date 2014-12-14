@@ -34,6 +34,9 @@ class WP_Uploads_Stats {
 		// set the path to the plugin main directory
 		$this->set_plugin_path(dirname(__FILE__));
 
+		// include all plugin files
+		$this->include_files();
+
 	}
 
 	/**
@@ -56,6 +59,15 @@ class WP_Uploads_Stats {
 	 */
 	protected function set_plugin_path($plugin_path) {
 		$this->plugin_path = $plugin_path;
+	}
+
+	/**
+	 * Load the plugin classes and libraries.
+	 *
+	 * @access protected
+	 */
+	protected function include_files() {
+
 	}
 
 }
