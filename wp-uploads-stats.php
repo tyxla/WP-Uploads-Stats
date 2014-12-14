@@ -37,6 +37,12 @@ class WP_Uploads_Stats {
 		// include all plugin files
 		$this->include_files();
 
+		// enqueue scripts
+		add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
+
+		// enqueue styles
+		add_action('admin_enqueue_scripts', array($this, 'enqueue_styles'));
+
 	}
 
 	/**
@@ -68,6 +74,24 @@ class WP_Uploads_Stats {
 	 */
 	protected function include_files() {
 
+	}
+
+	/**
+	 * Enqueue main plugin scripts.
+	 *
+	 * @access public
+	 */
+	public function enqueue_scripts() {
+		
+	}
+
+	/**
+	 * Enqueue main plugin styles.
+	 *
+	 * @access public
+	 */
+	public function enqueue_styles() {
+		
 	}
 
 }
