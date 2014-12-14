@@ -1,4 +1,4 @@
-WP-Uploads-Stats
+WP Uploads Stats
 ================
 
-Provides you with detailed statistics about your WordPress uploads
+Provides you with detailed statistics about your WordPress uploads.
