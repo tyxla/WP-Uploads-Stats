@@ -82,7 +82,7 @@ class WP_Uploads_Stats {
 	 * @access protected
 	 */
 	protected function include_files() {
-
+		require_once($this->get_plugin_path() . '/includes/class-directory-iterator.php');
 	}
 
 	/**
