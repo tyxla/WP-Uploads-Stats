@@ -76,7 +76,7 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return string $path The opened path. 
 	 */ 
-	public function getPath() { 
+	public function get_path() { 
 		return $this->path; 
 	}    
 	
@@ -87,7 +87,7 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return string $entry The current file name. 
 	 */ 
-	public function getFileName() { 
+	public function get_file_name() { 
 		return $this->entry; 
 	}    
 	
@@ -98,8 +98,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return string $full_path The current entries path and file name. 
 	 */ 
-	public function getPathName() { 
-		return $this->getPath() . $this->getFileName(); 
+	public function get_path_name() { 
+		return $this->get_path() . $this->get_file_name(); 
 	}    
 
 	/** 
@@ -109,8 +109,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return int $perms The current entry's permissions. 
 	 */ 
-	public function getPerms() { 
-		return fileperms($this->getPathName()); 
+	public function get_perms() { 
+		return fileperms($this->get_path_name()); 
 	} 
 	
 	/** 
@@ -120,8 +120,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return int $inode The current entry's inode. 
 	 */ 
-	public function getInode() { 
-		return fileinode($this->getPathName()); 
+	public function get_inode() { 
+		return fileinode($this->get_path_name()); 
 	} 
 	
 	/** 
@@ -131,8 +131,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return int $size The current entry's size in bytes. 
 	 */ 
-	public function getSize() { 
-		return filesize($this->getPathName()); 
+	public function get_size() { 
+		return filesize($this->get_path_name()); 
 	} 
 	
 	/** 
@@ -142,8 +142,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return string $owner The current entry's owner name. 
 	 */ 
-	public function getOwner() { 
-		return fileowner($this->getPathName()); 
+	public function get_owner() { 
+		return fileowner($this->get_path_name()); 
 	} 
 	
 	/** 
@@ -153,8 +153,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return string $group The current entry's group name. 
 	 */ 
-	public function getGroup() { 
-		return filegroup($this->getPathName()); 
+	public function get_group() { 
+		return filegroup($this->get_path_name()); 
 	} 
 	
 	/** 
@@ -164,8 +164,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return int $time The current entry's last access time. 
 	 */ 
-	public function getATime() { 
-		return fileatime($this->getPathName()); 
+	public function get_atime() { 
+		return fileatime($this->get_path_name()); 
 	} 
 	
 	/** 
@@ -175,8 +175,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return int $time The current entry's last modification time. 
 	 */ 
-	public function getMTime() { 
-		return filemtime($this->getPathName()); 
+	public function get_mtime() { 
+		return filemtime($this->get_path_name()); 
 	} 
 	
 	/** 
@@ -186,8 +186,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return int $time The current entry's last change time. 
 	 */ 
-	public function getCTime() { 
-		return filectime($this->getPathName()); 
+	public function get_ctime() { 
+		return filectime($this->get_path_name()); 
 	} 
 	
 	/** 
@@ -197,8 +197,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return string $type The type of the current entry.
 	 */ 
-	public function getType() { 
-		return filetype($this->getPathName()); 
+	public function get_type() { 
+		return filetype($this->get_path_name()); 
 	} 
 	
 	/** 
@@ -208,8 +208,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return bool $writable Whether the current entry is writeable. 
 	 */ 
-	public function isWritable() { 
-		return is_writable($this->getPathName()); 
+	public function is_writable() { 
+		return is_writable($this->get_path_name()); 
 	} 
 	
 	/** 
@@ -219,8 +219,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return bool $readable Whether the current entry is readable. 
 	 */ 
-	public function isReadable() { 
-		return is_readable($this->getPathName()); 
+	public function is_readable() { 
+		return is_readable($this->get_path_name()); 
 	} 
 	
 	/** 
@@ -230,9 +230,9 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return bool $executable Whether the current entry is executable. 
 	 */ 
-	public function isExecutable() { 
+	public function is_executable() { 
 		if (function_exists('is_executable')) { 
-			return is_executable($this->getPathName()); 
+			return is_executable($this->get_path_name()); 
 		}
 		return false;
 	} 
@@ -244,8 +244,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return bool $is_file Whether the current entry is a file. 
 	 */ 
-	public function isFile() { 
-		return is_file($this->getPathName()); 
+	public function is_file() { 
+		return is_file($this->get_path_name()); 
 	} 
 	
 	/** 
@@ -255,8 +255,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return bool $is_dir Whether the current entry is a directory.
 	 */ 
-	public function isDir() { 
-		return is_dir($this->getPathName()); 
+	public function is_dir() { 
+		return is_dir($this->get_path_name()); 
 	}    
 	
 	/** 
@@ -266,8 +266,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return bool $is_dot Whether the current entry is either '.' or '..'. 
 	 */ 
-	public function isDot() { 
-		return $this->isDir() && ($this->entry == '.' || $this->entry == '..'); 
+	public function is_dot() { 
+		return $this->is_dir() && ($this->entry == '.' || $this->entry == '..'); 
 	}    
 	
 	/** 
@@ -277,8 +277,8 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return bool $is_link Whether the current entry is a link.
 	 */ 
-	public function isLink() { 
-		return is_link($this->getPathName()); 
+	public function is_link() { 
+		return is_link($this->get_path_name()); 
 	}        
 
 	/** 
@@ -287,7 +287,7 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 * @access public
 	 */                  
 	public function next() { 
-		$this->valid = $this->getFile(); 
+		$this->valid = $this->get_file(); 
 		$this->key++; 
 	} 
 	
@@ -299,7 +299,7 @@ class WP_Uploads_Stats_Directory_Iterator {
 	public function rewind() { 
 		$this->key = 0; 
 		rewinddir($this->handle); 
-		$this->valid = $this->getFile(); 
+		$this->valid = $this->get_file(); 
 	} 
 	
 	/** 
@@ -355,7 +355,7 @@ class WP_Uploads_Stats_Directory_Iterator {
 	 *
 	 * @return bool $readable Whether the file/directory is readable.
 	 */
-	public function getFile() { 
+	public function get_file() { 
 		if ( false !== ($file = readdir($this->handle)) ) { 
 			$this->entry = $file; 
 			return true; 
