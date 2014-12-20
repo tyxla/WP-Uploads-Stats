@@ -32,6 +32,15 @@ class WP_Uploads_Stats {
 	protected $assets_url;
 
 	/**
+	 * The module manager.
+	 *
+	 * @access protected
+	 *
+	 * @var WP_Uploads_Stats_Module_Manager
+	 */
+	protected $module_manager;
+
+	/**
 	 * Constructor.
 	 *	
 	 * Initializes and hooks the plugin functionality.
@@ -43,8 +52,14 @@ class WP_Uploads_Stats {
 		// set the path to the plugin main directory
 		$this->set_plugin_path(dirname(__FILE__));
 
+		// set assets URL
+		$this->set_assets_url(plugins_url('/', __FILE__));
+
 		// include all plugin files
 		$this->include_files();
+
+		// initialize module manager
+		$this->set_module_manager(new WP_Uploads_Stats_Module_Manager());
 
 		// enqueue scripts
 		add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
@@ -52,6 +67,28 @@ class WP_Uploads_Stats {
 		// enqueue styles
 		add_action('admin_enqueue_scripts', array($this, 'enqueue_styles'));
 
+	}
+
+	/**
+	 * Retrieve the module manager.
+	 *
+	 * @access public
+	 *
+	 * @return WP_Uploads_Stats_Module_Manager $module_manager The module manager.
+	 */
+	public function get_module_manager() {
+		return $this->module_manager;
+	}
+
+	/**
+	 * Modify the module manager.
+	 *
+	 * @access public
+	 *
+	 * @param WP_Uploads_Stats_Module_Manager $module_manager The new module manager.
+	 */
+	public function set_module_manager($module_manager) {
+		$this->module_manager = $module_manager;
 	}
 
 	/**
@@ -82,6 +119,9 @@ class WP_Uploads_Stats {
 	 * @access protected
 	 */
 	protected function include_files() {
+		require_once($this->get_plugin_path() . '/core/class-module-manager.php');
+		require_once($this->get_plugin_path() . '/core/class-module-base.php');
+
 		require_once($this->get_plugin_path() . '/includes/class-directory-iterator.php');
 	}
 
