@@ -4,7 +4,7 @@
 
 		<?php 
 		// this is where the modules should hook to
-		do_action('wp_uploads_stats_render'); 
+		do_action('wp_uploads_stats_render');
 		?>
 	</div>
 </div>
