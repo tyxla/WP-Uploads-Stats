@@ -14,6 +14,15 @@ abstract class WP_Uploads_Stats_Module_Base {
 	protected $name;
 
 	/**
+	 * Module data.
+	 *
+	 * @access protected
+	 *
+	 * @var array
+	 */
+	protected $data;
+
+	/**
 	 * Constructor.
 	 *	
 	 * Initializes the module.
@@ -39,7 +48,10 @@ abstract class WP_Uploads_Stats_Module_Base {
 	 * @access public
 	 */
 	public function render() {
-		global $wp_uploads_stats;		
+		global $wp_uploads_stats;
+
+		// define the module so the template can reach it
+		$wp_uploads_module = $this;
 
 		// determine the main template
 		$template = $wp_uploads_stats->get_plugin_path() . '/templates/module-' . $this->get_name() . '.php';
@@ -69,6 +81,28 @@ abstract class WP_Uploads_Stats_Module_Base {
 	 */
 	public function set_name($name) {
 		$this->name = $name;
+	}
+
+	/**
+	 * Retrieve the module data.
+	 *
+	 * @access public
+	 *
+	 * @return array $data The module data.
+	 */
+	public function get_data() {
+		return $this->data;
+	}
+
+	/**
+	 * Modify the module data.
+	 *
+	 * @access public
+	 *
+	 * @param array $data The new module data.
+	 */
+	public function set_data($data) {
+		$this->data = $data;
 	}
 
 }
