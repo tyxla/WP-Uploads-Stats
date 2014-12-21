@@ -38,14 +38,12 @@ class WP_Uploads_Stats_Module_Manager {
 	 */
 	public function load() {
 		// allow for new modules to be registered
-		$module_names = apply_filters('wp_uploads_stats_modules', array(
-			
-		));
+		$module_names = apply_filters('wp_uploads_stats_modules', array());
 
 		// initialize the modules
 		$modules = array();
-		foreach ($module_names as $module_name) {
-			$modules[] = new $module_name;
+		foreach ($module_names as $module_name => $class_name) {
+			$modules[] = new $class_name($module_name);
 		}
 
 		// register the modules

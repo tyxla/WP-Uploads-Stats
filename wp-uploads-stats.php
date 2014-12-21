@@ -61,6 +61,12 @@ class WP_Uploads_Stats {
 		// initialize module manager
 		$this->set_module_manager(new WP_Uploads_Stats_Module_Manager());
 
+		// register modules
+		add_filter('wp_uploads_stats_modules', array($this, 'get_modules'));
+
+		// hook the rendering of all modules
+		add_action('wp_uploads_stats_render', array($this->module_manager, 'render_modules'));
+
 		// enqueue scripts
 		add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
 
@@ -114,6 +120,17 @@ class WP_Uploads_Stats {
 	}
 
 	/**
+	 * The default modules to register.
+	 *
+	 * @access protected
+	 */
+	public function get_modules() {
+		return array(
+			'overview' => 'WP_Uploads_Stats_Module_Overview'
+		);
+	}
+
+	/**
 	 * Load the plugin classes and libraries.
 	 *
 	 * @access protected
@@ -123,6 +140,12 @@ class WP_Uploads_Stats {
 		require_once($this->get_plugin_path() . '/core/class-module-base.php');
 
 		require_once($this->get_plugin_path() . '/core/class-directory-file-iterator.php');
+
+		$modules = $this->get_modules();
+		foreach ($modules as $module_name => $class_name) {
+			require_once($this->get_plugin_path() . '/modules/' . $module_name . '/module.php');
+		}
+		
 	}
 
 	/**
