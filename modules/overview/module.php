@@ -22,6 +22,9 @@ class WP_Uploads_Stats_Module_Overview extends WP_Uploads_Stats_Module_Base {
 		// get number of files
 		$data['total_files'] = $iterator->get_file_number();
 
+		// get number of files
+		$data['total_directories'] = $iterator->get_directory_number() - 1;
+
 		// distribute data to module
 		$this->set_data($data);
 	}
@@ -35,6 +38,7 @@ class WP_Uploads_Stats_Module_Overview extends WP_Uploads_Stats_Module_Base {
 		return array(
 			'total_size' => 'Total Size',
 			'total_files' => 'Total Number of Files',
+			'total_directories' => 'Total Number of Directories',
 		);
 	}
 

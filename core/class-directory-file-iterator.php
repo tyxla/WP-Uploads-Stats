@@ -127,4 +127,28 @@ class WP_Uploads_Stats_Directory_File_Iterator {
 		return $file_number;
 	}
 
+	/**
+	 * Get the number of directories within the current directory.
+	 *
+	 * @access public
+	 *
+	 * @return int $number The total number of directories within the current directory.
+	 */
+	public function get_directory_number() {
+		$path = $this->get_path();
+		$dir_number = 0;
+
+		if (is_dir($path)) {
+			$dir_number++;
+		}
+
+		$entries = $this->get_entries();
+		foreach ($entries as $entry) {
+			$entry_iterator = new WP_Uploads_Stats_Directory_File_Iterator($entry);
+			$dir_number += $entry_iterator->get_directory_number();
+		}
+
+		return $dir_number;
+	}
+
 }
