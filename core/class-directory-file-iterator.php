@@ -102,4 +102,29 @@ class WP_Uploads_Stats_Directory_File_Iterator {
 		return $total_size;
 	}
 
+	/**
+	 * Get the number of files of the current directory.
+	 *
+	 * @access public
+	 *
+	 * @return int $number The total number of files in the current directory.
+	 */
+	public function get_file_number() {
+		$path = $this->get_path();
+
+		if (is_file($path)) {
+			return 1;
+		}
+
+		$file_number = 0;
+
+		$entries = $this->get_entries();
+		foreach ($entries as $entry) {
+			$entry_iterator = new WP_Uploads_Stats_Directory_File_Iterator($entry);
+			$file_number += $entry_iterator->get_file_number();
+		}
+
+		return $file_number;
+	}
+
 }

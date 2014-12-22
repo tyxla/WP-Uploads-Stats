@@ -19,6 +19,9 @@ class WP_Uploads_Stats_Module_Overview extends WP_Uploads_Stats_Module_Base {
 		// get total size
 		$data['total_size'] = size_format($iterator->get_size());
 
+		// get number of files
+		$data['total_files'] = $iterator->get_file_number();
+
 		// distribute data to module
 		$this->set_data($data);
 	}
@@ -30,7 +33,8 @@ class WP_Uploads_Stats_Module_Overview extends WP_Uploads_Stats_Module_Base {
 	 */
 	public function get_data_labels() {
 		return array(
-			'total_size' => 'Total Size'
+			'total_size' => 'Total Size',
+			'total_files' => 'Total Number of Files',
 		);
 	}
 
