@@ -1,0 +1,11 @@
+.wp-uploads-stats-module { float: left; display: inline; width: 300px; margin: 20px 20px 0 0; background: #fff; border: 1px solid #e5e5e5; 
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
+	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
+}
+.wp-uploads-stats-module h3 { margin: 0; padding: 1em 0; text-align: center; background: #f0f0f0; border-bottom: 1px solid #e5e5e5; }
+.wp-uploads-stats-module table { width: 100%; }
+.wp-uploads-stats-module th,
+.wp-uploads-stats-module td { padding: 5px 8px; }
+.wp-uploads-stats-module th { text-align: left; }
+.wp-uploads-stats-module td { text-align: right; }
