@@ -64,6 +64,7 @@ class WP_Uploads_Stats_Directory_File_Iterator {
 
 		$entries = array();
 
+		// find all non-dot files/directories and save them to the entry list
 		if ($dir = opendir($path)) {
 			while (false !== ($file = readdir($dir))) {
 				if ($file != "." && $file != "..") {
@@ -87,12 +88,14 @@ class WP_Uploads_Stats_Directory_File_Iterator {
 	public function get_size() {
 		$path = $this->get_path();
 
+		// if this is a file, get its size
 		if (is_file($path)) {
 			return filesize($path);
 		} 
 
 		$total_size = 0;
 
+		// recursively get the size of all directories
 		$entries = $this->get_entries();
 		foreach ($entries as $entry) {
 			$entry_iterator = new WP_Uploads_Stats_Directory_File_Iterator($entry);
@@ -112,12 +115,14 @@ class WP_Uploads_Stats_Directory_File_Iterator {
 	public function get_file_number() {
 		$path = $this->get_path();
 
+		// if this is a single file
 		if (is_file($path)) {
 			return 1;
 		}
 
 		$file_number = 0;
 
+		// get number of files recursively within the current directory
 		$entries = $this->get_entries();
 		foreach ($entries as $entry) {
 			$entry_iterator = new WP_Uploads_Stats_Directory_File_Iterator($entry);
@@ -138,10 +143,12 @@ class WP_Uploads_Stats_Directory_File_Iterator {
 		$path = $this->get_path();
 		$dir_number = 0;
 
+		// if this is a directory, count it
 		if (is_dir($path)) {
 			$dir_number++;
 		}
 
+		// get number of directories recursively within the current directory
 		$entries = $this->get_entries();
 		foreach ($entries as $entry) {
 			$entry_iterator = new WP_Uploads_Stats_Directory_File_Iterator($entry);

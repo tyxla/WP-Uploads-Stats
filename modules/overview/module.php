@@ -22,7 +22,7 @@ class WP_Uploads_Stats_Module_Overview extends WP_Uploads_Stats_Module_Base {
 		// get number of files
 		$data['total_files'] = $iterator->get_file_number();
 
-		// get number of files
+		// get number of directories - 1 (main uploads directory excluded)
 		$data['total_directories'] = $iterator->get_directory_number() - 1;
 
 		// distribute data to module
