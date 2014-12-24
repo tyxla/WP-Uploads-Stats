@@ -158,4 +158,64 @@ class WP_Uploads_Stats_Directory_File_Iterator {
 		return $dir_number;
 	}
 
+	/**
+	 * Get number of files by file type.
+	 *
+	 * @access public
+	 *
+	 * @return array $files The total number of files, classified by file type.
+	 */
+	public function get_files_by_type() {
+		$path = $this->get_path();
+		$by_type = array();
+
+		// if this is a file, count it
+		if (is_file($path)) {
+			$ext = pathinfo($path, PATHINFO_EXTENSION);
+			$by_type = $this->add_file_by_type_number($by_type, $ext, 1);
+		} else {
+			// get files by type within the current directory, recursively
+			$entries = $this->get_entries();
+			foreach ($entries as $entry) {
+
+				// get files by type in the current directory
+				$entry_iterator = new WP_Uploads_Stats_Directory_File_Iterator($entry);
+				$entry_by_type = $entry_iterator->get_files_by_type();
+
+				// add the found files by type to the totals
+				foreach ($entry_by_type as $type => $value) {
+					$by_type = $this->add_file_by_type_number($by_type, $type, $value);
+				}
+			}
+		}
+
+		return $by_type;
+	}
+
+	/**
+	 * Add a certain amount to a certain file type to the totals.
+	 *
+	 * @access public
+	 *
+	 * @param array $totals The total number of files before the update.
+	 * @param string $type The file type (extension).
+	 * @param int $value The total number of files to add of that type.
+	 * @return array $totals The updated total number of files, classified by file type.
+	 */
+	private function add_file_by_type_number($totals, $type, $value = 1) {
+		// JPEG should be counted as JPG to reduce confusion
+		if ($type == 'jpeg') {
+			$type = 'jpg';
+		}
+
+		// make sure the array key for that type is defined
+		if (!isset($totals[$type])) {
+			$totals[$type] = 0;
+		}
+
+		// increase the total by the passed value
+		$totals[$type] += $value;
+		
+		return $totals;
+	}
 }

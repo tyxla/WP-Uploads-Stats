@@ -126,7 +126,8 @@ class WP_Uploads_Stats {
 	 */
 	public function get_modules() {
 		return array(
-			'overview' => 'WP_Uploads_Stats_Module_Overview'
+			'overview' => 'WP_Uploads_Stats_Module_Overview',
+			'file-type' => 'WP_Uploads_Stats_Module_File_Type',
 		);
 	}
 
