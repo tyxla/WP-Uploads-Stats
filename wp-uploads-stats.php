@@ -177,6 +177,7 @@ class WP_Uploads_Stats {
 	 * @access public
 	 */
 	public function enqueue_scripts() {
+		wp_enqueue_script('jquery-masonry');
 		wp_enqueue_script('wp-uploads-stats', $this->get_assets_url() . 'js/main.js', array('jquery'));
 	}
 
