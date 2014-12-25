@@ -196,6 +196,7 @@ class WP_Uploads_Stats_Directory_File_Iterator {
 	 * Add a certain amount to a certain file type to the totals.
 	 *
 	 * @access public
+	 * @see WP_Uploads_Stats_Directory_File_Iterator::get_files_by_type()
 	 *
 	 * @param array $totals The total number of files before the update.
 	 * @param string $type The file type (extension).

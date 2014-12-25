@@ -128,6 +128,7 @@ class WP_Uploads_Stats {
 		return array(
 			'overview' => 'WP_Uploads_Stats_Module_Overview',
 			'file-type' => 'WP_Uploads_Stats_Module_File_Type',
+			'size-by-year' => 'WP_Uploads_Stats_Module_Size_By_Year',
 		);
 	}
 
