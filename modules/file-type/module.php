@@ -17,6 +17,9 @@ class WP_Uploads_Stats_Module_File_Type extends WP_Uploads_Stats_Module_Base {
 		$iterator = new WP_Uploads_Stats_Directory_File_Iterator($wp_uploads_dir['basedir']);
 		$data = $iterator->get_files_by_type();
 
+		// sort by number of files, descending
+		arsort($data);
+
 		// distribute data to module
 		$this->set_data($data);
 	}
