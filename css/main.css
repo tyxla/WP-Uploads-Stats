@@ -7,7 +7,13 @@
 .wp-uploads-stats-module .tr { text-align: right; }
 .wp-uploads-stats-module h3 { margin: 0; padding: 1em 0; text-align: center; background: #eaeaea; border-bottom: 1px solid #d9d9d9; }
 .wp-uploads-stats-module table { width: 100%; border-spacing: 0; }
-.wp-uploads-stats-module thead th { border-bottom: 1px solid #d9d9d9; background: #eaeaea; font-size: 14px; }
+.wp-uploads-stats-module thead th { border-bottom: 1px solid #d9d9d9; background: #eaeaea; font-size: 14px; cursor: pointer; position: relative; padding-right: 25px; }
+.wp-uploads-stats-module thead th:hover { background-color: #e0e0e0; }
+.wp-uploads-stats-module thead th.sortable-active:after { content: ''; width: 0; height: 0; position: absolute; top: 50%; right: 5px; margin-top: -3px; }
+.wp-uploads-stats-module thead th.sortable-asc:after,
+.wp-uploads-stats-module thead th.sortable-desc:after { border-left: 5px solid transparent; border-right: 5px solid transparent; }
+.wp-uploads-stats-module thead th.sortable-asc:after { border-bottom: 5px solid black; }
+.wp-uploads-stats-module thead th.sortable-desc:after { border-top: 5px solid black; }
 .wp-uploads-stats-module th,
 .wp-uploads-stats-module td { padding: 5px 8px; }
 .wp-uploads-stats-module th { text-align: left; }
