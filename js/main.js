@@ -1,3 +1,15 @@
+// sort two number values
+Number.prototype.sortCompare = function(y) {
+	var x = this;
+	
+	if (x > y) {
+		return 1;
+	} else if(x < y) {
+		return -1;
+	}
+	return 0;
+}
+
 jQuery(function($) {
 
 	// initialize main page masonry
@@ -33,15 +45,10 @@ jQuery(function($) {
 			}
 
 			// if the values are numbers, apply number sort 
-			if (parseFloat(x) > 0 && parseFloat(y) > 0) {
-				x = parseFloat(x);
-				y = parseFloat(y);
-				if (x > y) {
-					return 1;
-				} else if(x < y) {
-					return -1;
-				}
-				return 0;
+			var x_num = parseFloat(x),
+				y_num = parseFloat(y);
+			if (x_num > 0 && y_num > 0) {
+				return x_num.sortCompare(y_num);
 			}
 
 			// if the values are non-number, sort as strings
