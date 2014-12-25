@@ -6,8 +6,8 @@ $data = $wp_uploads_module->get_data();
 	<table>
 		<thead>
 			<tr>
-				<th class="tl">File type</th>
-				<th class="tr">Number of files</th>
+				<th class="tl sortable">File type</th>
+				<th class="tr sortable sortable-desc sortable-active">Number of files</th>
 			</tr>
 		</thead>
 		<tbody>
