@@ -10,14 +10,14 @@ jQuery(function($) {
 
 	// sortable tables
 	$('.wp-uploads-stats-module thead th.sortable').on('click', function() {
+		var table = $(this).closest('table'),
+			tbody = table.find('tbody');
+			order = $(this).hasClass('sortable-desc') ? 'asc' : 'desc',
+			idx = table.find('thead th').index($(this));
 
 		// handle main current sortable column class
-		$('.sortable-active').removeClass('sortable-active');
+		table.find('.sortable-active').removeClass('sortable-active');
 		$(this).addClass('sortable-active');
-
-		var tbody = $(this).closest('table').find('tbody');
-			order = $(this).hasClass('sortable-desc') ? 'asc' : 'desc',
-			idx = $('.wp-uploads-stats-module thead th').index($(this));
 
 		// sort rows by selected value in selected order
 		tbody.find('tr').sort(function(a, b) {
