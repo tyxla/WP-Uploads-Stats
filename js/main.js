@@ -22,6 +22,8 @@ jQuery(function($) {
 		// sort rows by selected value in selected order
 		tbody.find('tr').sort(function(a, b) {
 			var x, y;
+
+			// determine sorting criteria
 			if (order == 'desc') {
 				x = $(':eq(' + idx + ')', b).text();
 				y = $(':eq(' + idx + ')', a).text();
@@ -30,6 +32,19 @@ jQuery(function($) {
 				y = $(':eq(' + idx + ')', b).text();
 			}
 
+			// if the values are numbers, apply number sort 
+			if (parseFloat(x) > 0 && parseFloat(y) > 0) {
+				x = parseFloat(x);
+				y = parseFloat(y);
+				if (x > y) {
+					return 1;
+				} else if(x < y) {
+					return -1;
+				}
+				return 0;
+			}
+
+			// if the values are non-number, sort as strings
 			return x.localeCompare(y);
 		}).appendTo(tbody);
 
