@@ -3,8 +3,11 @@
 	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
 }
+.wp-uploads-stats-module .tl { text-align: left; }
+.wp-uploads-stats-module .tr { text-align: right; }
 .wp-uploads-stats-module h3 { margin: 0; padding: 1em 0; text-align: center; background: #eaeaea; border-bottom: 1px solid #d9d9d9; }
 .wp-uploads-stats-module table { width: 100%; border-spacing: 0; }
+.wp-uploads-stats-module thead th { border-bottom: 1px solid #d9d9d9; background: #eaeaea; font-size: 14px; }
 .wp-uploads-stats-module th,
 .wp-uploads-stats-module td { padding: 5px 8px; }
 .wp-uploads-stats-module th { text-align: left; }
