@@ -130,6 +130,7 @@ class WP_Uploads_Stats {
 			'file-type' => 'WP_Uploads_Stats_Module_File_Type',
 			'file-type-chart' => 'WP_Uploads_Stats_Module_File_Type_Chart',
 			'size-by-year' => 'WP_Uploads_Stats_Module_Size_By_Year',
+			'size-by-year-chart' => 'WP_Uploads_Stats_Module_Size_By_Year_Chart',
 		);
 	}
 

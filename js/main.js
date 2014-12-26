@@ -68,8 +68,9 @@ jQuery(function($) {
 		$('.chart-pie').each(function() {
 			var id = $(this).attr('id'),
 				context = document.getElementById(id).getContext("2d"),
-				data = $(this).data('data');
-			Object.defineProperty(window.WPUS_Charts, id, new Chart(context).Pie(data));
+				data = $(this).data('data'),
+				settings = $(this).data('settings');
+			Object.defineProperty(window.WPUS_Charts, id, new Chart(context).Pie(data, settings));
 		});
 	});
 
