@@ -20,3 +20,5 @@
 .wp-uploads-stats-module th { text-align: left; }
 .wp-uploads-stats-module td { text-align: right; }
 .wp-uploads-stats-module tr:nth-child(even) { background: #f1f1f1; }
+.wp-uploads-stats-module-chart { text-align: center; }
+.wp-uploads-stats-module-chart canvas { margin: 10px 0; }

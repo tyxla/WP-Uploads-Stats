@@ -59,4 +59,18 @@ jQuery(function($) {
 		$(this).removeClass('sortable-asc sortable-desc').addClass('sortable-' + order);
 	});
 
+	// this is where we store the charts
+	window.WPUS_Charts = {};
+
+	// charts - pie
+	$(window).on('load', function() {
+
+		$('.chart-pie').each(function() {
+			var id = $(this).attr('id'),
+				context = document.getElementById(id).getContext("2d"),
+				data = $(this).data('data');
+			Object.defineProperty(window.WPUS_Charts, id, new Chart(context).Pie(data));
+		});
+	});
+
 });

@@ -128,6 +128,7 @@ class WP_Uploads_Stats {
 		return array(
 			'overview' => 'WP_Uploads_Stats_Module_Overview',
 			'file-type' => 'WP_Uploads_Stats_Module_File_Type',
+			'file-type-chart' => 'WP_Uploads_Stats_Module_File_Type_Chart',
 			'size-by-year' => 'WP_Uploads_Stats_Module_Size_By_Year',
 		);
 	}
@@ -179,6 +180,7 @@ class WP_Uploads_Stats {
 	 */
 	public function enqueue_scripts() {
 		wp_enqueue_script('jquery-masonry');
+		wp_enqueue_script('chart-js', $this->get_assets_url() . 'js/Chart.min.js');
 		wp_enqueue_script('wp-uploads-stats', $this->get_assets_url() . 'js/main.js', array('jquery'));
 	}
 
