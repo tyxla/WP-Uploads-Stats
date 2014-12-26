@@ -15,12 +15,13 @@ class WP_Uploads_Stats_Module_Overview extends WP_Uploads_Stats_Module_Base {
 		// initialize the iterator
 		$wp_uploads_dir = wp_upload_dir();
 		$iterator = new WP_Uploads_Stats_Directory_File_Iterator($wp_uploads_dir['basedir']);
+		$total_size = $iterator->get_size();
 
 		// get total size
-		$data['total_size'] = size_format($iterator->get_size());
+		$data['total_size'] = size_format($total_size);
 
 		// get total size (bytes)
-		$data['total_size_bytes'] = $iterator->get_size() . ' B';
+		$data['total_size_bytes'] = $total_size . ' B';
 
 		// get number of files
 		$data['total_files'] = $iterator->get_file_number();
