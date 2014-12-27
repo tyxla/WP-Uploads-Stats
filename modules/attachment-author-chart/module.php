@@ -1,9 +1,9 @@
 <?php
 /**
- * Class for the stats Attachments by Type Chart module.
- * @uses WP_Uploads_Stats_Module_Attachment_Type
+ * Class for the stats Attachments by Author Chart module.
+ * @uses WP_Uploads_Stats_Module_Attachment_Author
  */
-class WP_Uploads_Stats_Module_Attachment_Type_Chart extends WP_Uploads_Stats_Module_Attachment_Type {
+class WP_Uploads_Stats_Module_Attachment_Author_Chart extends WP_Uploads_Stats_Module_Attachment_Author {
 
 	/**
 	 * Setup & configure the module.
@@ -18,14 +18,14 @@ class WP_Uploads_Stats_Module_Attachment_Type_Chart extends WP_Uploads_Stats_Mod
 		// prepare data for use in the Chart.js format
 		$new_data = array();
 		$data = $this->get_data();
-		foreach ($data as $extension => $number) {
+		foreach ($data as $id => $number) {
 			// generate a somewhat unique color 
-			$color = substr(md5($extension), 0, 6);
+			$color = substr(md5($id), 2, 6);
 
 			// generate pie slice
 			$new_data[] = array(
 				'value' => intval($number),
-				'label' => $extension,
+				'label' => get_the_author_meta('display_name', $id),
 				'color' => '#' . $color
 			);
 		}

@@ -24,7 +24,7 @@ class WP_Uploads_Stats_Module_File_Type_Chart extends WP_Uploads_Stats_Module_Fi
 
 			// generate pie slice
 			$new_data[] = array(
-				'value' => $number,
+				'value' => intval($number),
 				'label' => $extension,
 				'color' => '#' . $color
 			);

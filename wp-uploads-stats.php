@@ -133,6 +133,8 @@ class WP_Uploads_Stats {
 			'size-by-year-chart' => 'WP_Uploads_Stats_Module_Size_By_Year_Chart',
 			'attachment-type' => 'WP_Uploads_Stats_Module_Attachment_Type',
 			'attachment-type-chart' => 'WP_Uploads_Stats_Module_Attachment_Type_Chart',
+			'attachment-author' => 'WP_Uploads_Stats_Module_Attachment_Author',
+			'attachment-author-chart' => 'WP_Uploads_Stats_Module_Attachment_Author_Chart',
 		);
 	}
 
