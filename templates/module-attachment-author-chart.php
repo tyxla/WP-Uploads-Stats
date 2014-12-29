@@ -5,5 +5,7 @@ $data = $wp_uploads_module->get_data();
 	<h3>Attachments by Author - Chart</h3>
 	<a href="#" class="wpus-icon dashicons dashicons-minus toggle"></a>
 	<a href="#" class="wpus-icon dashicons dashicons-screenoptions drag-handle"></a>
-	<canvas class="chart chart-pie" id="module-attachments-author-chart" data-data='<?php echo json_encode($data); ?>' width="280" height="280" />
+	<div class="module-inner">
+		<canvas class="chart chart-pie" id="module-attachments-author-chart" data-data='<?php echo json_encode($data); ?>' width="280" height="280" />
+	</div>
 </div>

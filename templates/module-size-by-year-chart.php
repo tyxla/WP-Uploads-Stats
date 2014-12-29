@@ -8,5 +8,7 @@ $settings = array(
 	<h3>Size by Year - Chart</h3>
 	<a href="#" class="wpus-icon dashicons dashicons-minus toggle"></a>
 	<a href="#" class="wpus-icon dashicons dashicons-screenoptions drag-handle"></a>
-	<canvas class="chart chart-pie" id="module-size-by-year-chart" data-data='<?php echo json_encode($data); ?>' data-settings='<?php echo json_encode($settings); ?>' width="280" height="280" />
+	<div class="module-inner">
+		<canvas class="chart chart-pie" id="module-size-by-year-chart" data-data='<?php echo json_encode($data); ?>' data-settings='<?php echo json_encode($settings); ?>' width="280" height="280" />
+	</div>
 </div>
