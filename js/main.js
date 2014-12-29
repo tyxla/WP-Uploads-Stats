@@ -74,6 +74,8 @@ jQuery(function($) {
 			$(this).addClass('dashicons-editor-expand').removeClass('dashicons-minus');
 			$(this).closest('.wp-uploads-stats-module').find('.module-inner').addClass('hidden');
 		}
+		
+		$shapeshift_wrapper.trigger("ss-rearrange");
 	});
 
 	// this is where we store the charts
