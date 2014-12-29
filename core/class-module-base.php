@@ -28,6 +28,8 @@ abstract class WP_Uploads_Stats_Module_Base {
 	 * Initializes the module.
 	 *
 	 * @access public
+	 *
+	 * @param string $name The module name.
 	 */
 	public function __construct($name) {
 		$this->set_name($name);
@@ -44,7 +46,6 @@ abstract class WP_Uploads_Stats_Module_Base {
 	/**
 	 * Render the module.
 	 *
-	 * @abstract
 	 * @access public
 	 */
 	public function render() {
@@ -59,6 +60,23 @@ abstract class WP_Uploads_Stats_Module_Base {
 
 		// render the main template
 		include_once($template);
+	}
+
+	/**
+	 * Render the module head section.
+	 *
+	 * @access public
+	 * 
+	 * @param string $title The module title.
+	 */
+	public function render_head($title) {
+		?>
+		<div class="module-head">
+			<h3><?php echo $title; ?></h3>
+			<a href="#" class="wpus-icon dashicons dashicons-minus toggle"></a>
+			<a href="#" class="wpus-icon dashicons dashicons-screenoptions drag-handle"></a>
+		</div>
+		<?php
 	}
 
 	/**
