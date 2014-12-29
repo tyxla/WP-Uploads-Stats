@@ -76,6 +76,8 @@ jQuery(function($) {
 		}
 		
 		$shapeshift_wrapper.trigger("ss-rearrange");
+
+		return false;
 	});
 
 	// this is where we store the charts
