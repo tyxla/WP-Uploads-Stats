@@ -41,6 +41,15 @@ class WP_Uploads_Stats {
 	protected $module_manager;
 
 	/**
+	 * The module settings manager.
+	 *
+	 * @access protected
+	 *
+	 * @var WP_Uploads_Stats_Module_Settings
+	 */
+	protected $module_settings_manager;
+
+	/**
 	 * Constructor.
 	 *	
 	 * Initializes and hooks the plugin functionality.
@@ -60,6 +69,9 @@ class WP_Uploads_Stats {
 
 		// initialize module manager
 		$this->set_module_manager(new WP_Uploads_Stats_Module_Manager());
+
+		// initialize module settings manager
+		$this->set_module_settings_manager(new WP_Uploads_Stats_Module_Settings());
 
 		// register modules
 		add_filter('wp_uploads_stats_modules', array($this, 'get_modules'));
@@ -95,6 +107,28 @@ class WP_Uploads_Stats {
 	 */
 	public function set_module_manager($module_manager) {
 		$this->module_manager = $module_manager;
+	}
+
+	/**
+	 * Retrieve the module settings manager.
+	 *
+	 * @access public
+	 *
+	 * @return WP_Uploads_Stats_Module_Settings $module_settings_manager The module settings manager.
+	 */
+	public function get_module_settings_manager() {
+		return $this->module_settings_manager;
+	}
+
+	/**
+	 * Modify the module settings manager.
+	 *
+	 * @access public
+	 *
+	 * @param WP_Uploads_Stats_Module_Settings $module_settings_manager The new module settings manager.
+	 */
+	public function set_module_settings_manager($module_settings_manager) {
+		$this->module_settings_manager = $module_settings_manager;
 	}
 
 	/**
@@ -146,6 +180,7 @@ class WP_Uploads_Stats {
 	protected function include_files() {
 		require_once($this->get_plugin_path() . '/core/class-module-manager.php');
 		require_once($this->get_plugin_path() . '/core/class-module-base.php');
+		require_once($this->get_plugin_path() . '/core/class-module-settings.php');
 
 		require_once($this->get_plugin_path() . '/core/class-directory-file-iterator.php');
 
