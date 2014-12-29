@@ -2,7 +2,7 @@
 $data = $wp_uploads_module->get_data();
 $data_labels = $wp_uploads_module->get_data_labels();
 ?>
-<div class="wp-uploads-stats-module wp-uploads-stats-module-overview">
+<div class="wp-uploads-stats-module wp-uploads-stats-module-overview" id="wpus-module-<?php echo $wp_uploads_module->get_name(); ?>">
 	<?php 
 	$title = 'Overview';
 	$wp_uploads_module->render_head($title); 

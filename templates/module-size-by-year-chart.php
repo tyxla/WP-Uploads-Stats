@@ -4,7 +4,7 @@ $settings = array(
 	'tooltipTemplate' => '<%if (label){%><%=label%><%}%>'
 );
 ?>
-<div class="wp-uploads-stats-module wp-uploads-stats-module-chart wp-uploads-stats-module-size-by-year-chart">
+<div class="wp-uploads-stats-module wp-uploads-stats-module-chart wp-uploads-stats-module-size-by-year-chart" id="wpus-module-<?php echo $wp_uploads_module->get_name(); ?>">
 	<?php 
 	$title = 'Size by Year - Chart';
 	$wp_uploads_module->render_head($title); 

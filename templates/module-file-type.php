@@ -1,7 +1,7 @@
 <?php
 $data = $wp_uploads_module->get_data();
 ?>
-<div class="wp-uploads-stats-module wp-uploads-stats-module-file-type">
+<div class="wp-uploads-stats-module wp-uploads-stats-module-file-type" id="wpus-module-<?php echo $wp_uploads_module->get_name(); ?>">
 	<?php 
 	$title = 'Files by Type';
 	$wp_uploads_module->render_head($title); 
