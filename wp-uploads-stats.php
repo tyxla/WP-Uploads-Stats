@@ -184,9 +184,11 @@ class WP_Uploads_Stats {
 	 * @access public
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script('jquery-masonry');
+		wp_enqueue_script('jquery-ui-draggable');
+		wp_enqueue_script('jquery-ui-droppable');
 		wp_enqueue_script('chart-js', $this->get_assets_url() . 'js/Chart.min.js');
-		wp_enqueue_script('wp-uploads-stats', $this->get_assets_url() . 'js/main.js', array('jquery'));
+		wp_enqueue_script('jquery-shapeshift', $this->get_assets_url() . 'js/jquery.shapeshift.min.js', array('jquery'));
+		wp_enqueue_script('wp-uploads-stats', $this->get_assets_url() . 'js/main.js', array('jquery', 'jquery-shapeshift'));
 	}
 
 	/**

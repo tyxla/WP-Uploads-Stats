@@ -12,11 +12,16 @@ Number.prototype.sortCompare = function(y) {
 
 jQuery(function($) {
 
-	// initialize main page masonry
-	$masonry_wrapper = $('.wp-uploads-stats-modules');
-	if ($masonry_wrapper.length) {
-		$masonry_wrapper.masonry({
-			itemSelector: '.wp-uploads-stats-module'
+	// initialize main page shapeshift
+	$shapeshift_wrapper = $('.wp-uploads-stats-modules');
+	if ($shapeshift_wrapper.length) {
+		$shapeshift_wrapper.shapeshift({
+			selector: '.wp-uploads-stats-module',
+			align: 'left',
+			gutterX: 20,
+			gutterY: 20,
+			paddingX: 0,
+			paddingY: 0,
 		});
 	}
 
