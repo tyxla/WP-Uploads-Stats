@@ -102,6 +102,7 @@ class WP_Uploads_Stats_Module_Manager {
 		// allow external code to modify the order of appearance of the modules
 		$modules = apply_filters('wp_uploads_stats_modules_render_order', $modules);
 
+		// render the modules in the correct order
 		foreach ($modules as $module) {
 			$module->render();
 		}
