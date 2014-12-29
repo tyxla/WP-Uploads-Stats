@@ -22,7 +22,7 @@ jQuery(function($) {
 			gutterX: 20,
 			gutterY: 20,
 			paddingX: 0,
-			paddingY: 0,
+			paddingY: 0
 		});
 	}
 
@@ -65,8 +65,41 @@ jQuery(function($) {
 		$(this).removeClass('sortable-asc sortable-desc').addClass('sortable-' + order);
 	});
 
+	// save the module settings (order and visibility)
+	function save_module_settings() {
+		// prepare module settings
+		var settings = {};
+
+		// go through all modules
+		$('.wp-uploads-stats-module').each(function(index) {
+			var id = $(this).attr('id').replace('wpus-module-', ''),
+				visible = $(this).find('.module-inner').hasClass('hidden') ? 0 : 1;
+
+			// save the order and visibility of each module
+			Object.defineProperty(settings, id, {
+				enumerable: true,
+				configurable: true,
+				writable: true,
+				value: {
+					order: index,
+					visibility: visible
+				}
+			});
+		});
+
+		// prepare the post data with settings
+		var data = {
+			action: 'wpus_save_module_settings',
+			settings: settings
+		};
+
+		// perform ajax request to save module settings
+		$.post(ajaxurl, data);
+	}
+
 	// toggling modules visibility
 	$('.wpus-icon.toggle').on('click', function() {
+		// handle classes
 		if ($(this).hasClass('dashicons-editor-expand')) {
 			$(this).removeClass('dashicons-editor-expand').addClass('dashicons-minus');
 			$(this).closest('.wp-uploads-stats-module').find('.module-inner').removeClass('hidden');
@@ -75,9 +108,18 @@ jQuery(function($) {
 			$(this).closest('.wp-uploads-stats-module').find('.module-inner').addClass('hidden');
 		}
 		
+		// trigger shapeshift rearrange
 		$shapeshift_wrapper.trigger("ss-rearrange");
 
+		// save module settings
+		save_module_settings();
+
 		return false;
+	});
+
+	// module drag & drop - prevent default
+	$('.wpus-icon.drag-handle').on('click', function(e) {
+		e.preventDefault();
 	});
 
 	// this is where we store the charts
