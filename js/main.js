@@ -26,6 +26,12 @@ jQuery(function($) {
 		});
 	}
 
+	// on shapeshift drop
+	$shapeshift_wrapper.on('ss-drop-complete', function() {
+		// save module settings
+		save_module_settings();
+	});
+
 	// sortable tables
 	$('.wp-uploads-stats-module thead th.sortable').on('click', function() {
 		var table = $(this).closest('table'),
