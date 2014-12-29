@@ -197,6 +197,12 @@ class WP_Uploads_Stats {
 	 * @access public
 	 */
 	public function enqueue_styles() {
+		// registering dashicons if they don't exist (for WP < 3.8 compatibility)
+		if (!wp_style_is('dashicons', 'registered')) {
+			wp_register_style('dashicons', $this->get_assets_url() . 'css/dashicons.min.css');
+		}
+
+		wp_enqueue_style('dashicons');
 		wp_enqueue_style('wp-uploads-stats-main', $this->get_assets_url() . 'css/main.css');
 	}
 
