@@ -17,6 +17,7 @@ jQuery(function($) {
 	if ($shapeshift_wrapper.length) {
 		$shapeshift_wrapper.shapeshift({
 			selector: '.wp-uploads-stats-module',
+			handle: '.drag-handle',
 			align: 'left',
 			gutterX: 20,
 			gutterY: 20,
