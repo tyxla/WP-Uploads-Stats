@@ -65,6 +65,17 @@ jQuery(function($) {
 		$(this).removeClass('sortable-asc sortable-desc').addClass('sortable-' + order);
 	});
 
+	// toggling modules visibility
+	$('.wpus-icon.toggle').on('click', function() {
+		if ($(this).hasClass('dashicons-editor-expand')) {
+			$(this).removeClass('dashicons-editor-expand').addClass('dashicons-minus');
+			$(this).closest('.wp-uploads-stats-module').find('.module-inner').removeClass('hidden');
+		} else {
+			$(this).addClass('dashicons-editor-expand').removeClass('dashicons-minus');
+			$(this).closest('.wp-uploads-stats-module').find('.module-inner').addClass('hidden');
+		}
+	});
+
 	// this is where we store the charts
 	window.WPUS_Charts = {};
 
