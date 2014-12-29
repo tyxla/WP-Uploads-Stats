@@ -2,9 +2,11 @@
 $data = $wp_uploads_module->get_data();
 ?>
 <div class="wp-uploads-stats-module wp-uploads-stats-module-attachment-author">
-	<h3>Attachments by Author</h3>
-	<a href="#" class="wpus-icon dashicons dashicons-minus toggle"></a>
-	<a href="#" class="wpus-icon dashicons dashicons-screenoptions drag-handle"></a>
+	<?php 
+	$title = 'Attachments by Author';
+	$wp_uploads_module->render_head($title); 
+	?>
+	
 	<div class="module-inner">
 		<table>
 			<thead>
