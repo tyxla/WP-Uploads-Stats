@@ -73,10 +73,27 @@ abstract class WP_Uploads_Stats_Module_Base {
 		?>
 		<div class="module-head">
 			<h3><?php echo $title; ?></h3>
-			<a href="#" class="wpus-icon dashicons dashicons-minus toggle"></a>
+			<a href="#" class="wpus-icon dashicons <?php echo $this->is_hidden() ? 'dashicons-editor-expand' : 'dashicons-minus'; ?> toggle"></a>
 			<a href="#" class="wpus-icon dashicons dashicons-screenoptions drag-handle"></a>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Whether this module is hidden for this user.
+	 *
+	 * @access public
+	 *
+	 * @return bool $hidden Whether this module is hidden.
+	 */
+	public function is_hidden() {
+		global $wp_uploads_stats;
+
+		$user_settings = $wp_uploads_stats->get_module_settings_manager()->get();
+		$module_name = $this->get_name();
+		$hidden = isset($user_settings[$module_name]) && $user_settings[$module_name]['visibility'] == 0;
+		
+		return $hidden;
 	}
 
 	/**
