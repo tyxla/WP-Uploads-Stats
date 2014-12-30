@@ -74,6 +74,9 @@ class WP_Uploads_Stats_Module_Settings {
 	public function get() {
 		$user_ID = get_current_user_id();
 		$settings = get_user_meta($user_ID, '_wpus_module_settings', 1);
+		if (!$settings) {
+			$settings = array();
+		}
 		$settings = $this->sort($settings);
 		return $settings;
 	}
