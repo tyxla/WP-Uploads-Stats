@@ -8,7 +8,7 @@ $data_labels = $wp_uploads_module->get_data_labels();
 	$wp_uploads_module->render_head($title); 
 	?>
 	
-	<div class="module-inner">
+	<div class="module-inner <?php echo $wp_uploads_module->is_hidden() ? 'hidden' : ''; ?>">
 		<table>
 			<tbody>
 				<?php foreach ($data as $key => $value): ?>

@@ -7,7 +7,7 @@ $data = $wp_uploads_module->get_data();
 	$wp_uploads_module->render_head($title); 
 	?>
 
-	<div class="module-inner">
+	<div class="module-inner <?php echo $wp_uploads_module->is_hidden() ? 'hidden' : ''; ?>">
 		<table>
 			<thead>
 				<tr>

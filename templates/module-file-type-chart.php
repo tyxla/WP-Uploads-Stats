@@ -7,7 +7,7 @@ $data = $wp_uploads_module->get_data();
 	$wp_uploads_module->render_head($title); 
 	?>
 	
-	<div class="module-inner">
+	<div class="module-inner <?php echo $wp_uploads_module->is_hidden() ? 'hidden' : ''; ?>">
 		<canvas class="chart chart-pie" id="module-file-type-chart" data-data='<?php echo json_encode($data); ?>' width="280" height="280" />
 	</div>		
 </div>
