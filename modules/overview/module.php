@@ -33,6 +33,15 @@ class WP_Uploads_Stats_Module_Overview extends WP_Uploads_Stats_Module_Base {
 		$attachment_count = wp_count_posts('attachment');
 		$data['total_attachments'] = $attachment_count->inherit;
 
+		// get number of authors with attachments
+		global $wpdb;
+		$authors_with_attachments = $wpdb->get_col("
+			SELECT DISTINCT post_author
+			FROM $wpdb->posts
+			WHERE post_type = 'attachment'
+		");
+		$data['total_authors'] = count($authors_with_attachments);
+
 		// distribute data to module
 		$this->set_data($data);
 	}
@@ -49,6 +58,7 @@ class WP_Uploads_Stats_Module_Overview extends WP_Uploads_Stats_Module_Base {
 			'total_files' => 'Total Number of Files',
 			'total_directories' => 'Total Number of Directories',
 			'total_attachments' => 'Total Attachments',
+			'total_authors' => 'Total Attachment Authors',
 		);
 	}
 
