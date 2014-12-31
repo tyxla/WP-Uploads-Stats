@@ -61,7 +61,7 @@ class WP_Uploads_Stats_Module_Settings {
 	 * @return int -1|0|1 An integer depending on the comparison result.
 	 */
 	public function sort_criteria($a, $b) {
-		return strcmp($a['order'], $b['order']);
+		return strnatcmp($a['order'], $b['order']);
 	}
 
 	/**
