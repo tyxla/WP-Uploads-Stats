@@ -19,6 +19,9 @@ class WP_Uploads_Stats_Module_Overview extends WP_Uploads_Stats_Module_Base {
 
 		// get total size
 		$data['total_size'] = size_format($total_size);
+		if (!$data['total_size']) {
+			$data['total_size'] = '0 B';
+		}
 
 		// get total size (bytes)
 		$data['total_size_bytes'] = $total_size . ' B';
