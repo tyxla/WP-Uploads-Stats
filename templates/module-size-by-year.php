@@ -1,7 +1,8 @@
 <?php
 $data = $wp_uploads_module->get_data();
+$module_name = $wp_uploads_module->get_name();
 ?>
-<div class="wp-uploads-stats-module wp-uploads-stats-module-size-by-year" id="wpus-module-<?php echo $wp_uploads_module->get_name(); ?>">
+<div class="wp-uploads-stats-module wp-uploads-stats-module-<?php echo $module_name; ?>" id="wpus-module-<?php echo $module_name; ?>">
 	<?php 
 	$title = 'Size by Year';
 	$wp_uploads_module->render_head($title); 
