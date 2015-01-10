@@ -50,6 +50,15 @@ class WP_Uploads_Stats {
 	protected $module_settings_manager;
 
 	/**
+	 * The screen settings manager.
+	 *
+	 * @access protected
+	 *
+	 * @var WP_Uploads_Stats_Module_Screen_Options
+	 */
+	protected $screen_settings_manager;
+
+	/**
 	 * Constructor.
 	 *	
 	 * Initializes and hooks the plugin functionality.
@@ -72,6 +81,9 @@ class WP_Uploads_Stats {
 
 		// initialize module settings manager
 		$this->set_module_settings_manager(new WP_Uploads_Stats_Module_Settings());
+
+		// initialize screen settings manager
+		$this->set_screen_settings_manager(new WP_Uploads_Stats_Module_Screen_Options());
 
 		// register modules
 		add_filter('wp_uploads_stats_modules', array($this, 'get_modules'));
@@ -132,6 +144,28 @@ class WP_Uploads_Stats {
 	}
 
 	/**
+	 * Retrieve the screen settings manager.
+	 *
+	 * @access public
+	 *
+	 * @return WP_Uploads_Stats_Module_Screen_Options $screen_settings_manager The screen settings manager.
+	 */
+	public function get_screen_settings_manager() {
+		return $this->screen_settings_manager;
+	}
+
+	/**
+	 * Modify the screen settings manager.
+	 *
+	 * @access public
+	 *
+	 * @param WP_Uploads_Stats_Module_Screen_Options $screen_settings_manager The new screen settings manager.
+	 */
+	public function set_screen_settings_manager($screen_settings_manager) {
+		$this->screen_settings_manager = $screen_settings_manager;
+	}
+
+	/**
 	 * Retrieve the path to the main plugin directory.
 	 *
 	 * @access public
@@ -160,19 +194,58 @@ class WP_Uploads_Stats {
 	 */
 	public function get_modules() {
 		return array(
-			'overview' => 'WP_Uploads_Stats_Module_Overview',
-			'file-type' => 'WP_Uploads_Stats_Module_File_Type',
-			'file-type-chart' => 'WP_Uploads_Stats_Module_File_Type_Chart',
-			'size-by-year' => 'WP_Uploads_Stats_Module_Size_By_Year',
-			'size-by-year-chart' => 'WP_Uploads_Stats_Module_Size_By_Year_Chart',
-			'attachment-type' => 'WP_Uploads_Stats_Module_Attachment_Type',
-			'attachment-type-chart' => 'WP_Uploads_Stats_Module_Attachment_Type_Chart',
-			'attachment-author' => 'WP_Uploads_Stats_Module_Attachment_Author',
-			'attachment-author-chart' => 'WP_Uploads_Stats_Module_Attachment_Author_Chart',
-			'attachment-by-year' => 'WP_Uploads_Stats_Module_Attachment_By_Year',
-			'attachment-by-year-chart' => 'WP_Uploads_Stats_Module_Attachment_By_Year_Chart',
-			'attachment-post-type' => 'WP_Uploads_Stats_Module_Attachment_Post_Type',
-			'attachment-post-type-chart' => 'WP_Uploads_Stats_Module_Attachment_Post_Type_Chart',
+			'overview' => array(
+				'class' => 'WP_Uploads_Stats_Module_Overview',
+				'title' => 'Overview',
+			),
+			'file-type' => array(
+				'class' => 'WP_Uploads_Stats_Module_File_Type',
+				'title' => 'Files by Type',
+			),
+			'file-type-chart' => array(
+				'class' => 'WP_Uploads_Stats_Module_File_Type_Chart',
+				'title' => 'Files by Type - Chart',
+			),
+			'size-by-year' => array(
+				'class' => 'WP_Uploads_Stats_Module_Size_By_Year',
+				'title' => 'Size by Year',
+			),
+			'size-by-year-chart' => array(
+				'class' => 'WP_Uploads_Stats_Module_Size_By_Year_Chart',
+				'title' => 'Size by Year - Chart',
+			),
+			'attachment-type' => array(
+				'class' => 'WP_Uploads_Stats_Module_Attachment_Type',
+				'title' => 'Attachments by Type',
+			),
+			'attachment-type-chart' => array(
+				'class' => 'WP_Uploads_Stats_Module_Attachment_Type_Chart',
+				'title' => 'Attachments by Type - Chart',
+			),
+			'attachment-author' => array(
+				'class' => 'WP_Uploads_Stats_Module_Attachment_Author',
+				'title' => 'Attachments by Author',
+			),
+			'attachment-author-chart' => array(
+				'class' => 'WP_Uploads_Stats_Module_Attachment_Author_Chart',
+				'title' => 'Attachments by Author - Chart',
+			),
+			'attachment-by-year' => array(
+				'class' => 'WP_Uploads_Stats_Module_Attachment_By_Year',
+				'title' => 'Attachments by Year',
+			),
+			'attachment-by-year-chart' => array(
+				'class' => 'WP_Uploads_Stats_Module_Attachment_By_Year_Chart',
+				'title' => 'Attachments by Year - Chart',
+			),
+			'attachment-post-type' => array(
+				'class' => 'WP_Uploads_Stats_Module_Attachment_Post_Type',
+				'title' => 'Attachments by Post Type',
+			),
+			'attachment-post-type-chart' => array(
+				'class' => 'WP_Uploads_Stats_Module_Attachment_Post_Type_Chart',
+				'title' => 'Attachments by Post Type - Chart',
+			),
 		);
 	}
 
@@ -185,6 +258,7 @@ class WP_Uploads_Stats {
 		require_once($this->get_plugin_path() . '/core/class-module-manager.php');
 		require_once($this->get_plugin_path() . '/core/class-module-base.php');
 		require_once($this->get_plugin_path() . '/core/class-module-settings.php');
+		require_once($this->get_plugin_path() . '/core/class-module-screen-options.php');
 
 		require_once($this->get_plugin_path() . '/core/class-directory-file-iterator.php');
 
@@ -228,6 +302,11 @@ class WP_Uploads_Stats {
 		wp_enqueue_script('chart-js', $this->get_assets_url() . 'js/Chart.min.js');
 		wp_enqueue_script('jquery-shapeshift', $this->get_assets_url() . 'js/jquery.shapeshift.min.js', array('jquery'));
 		wp_enqueue_script('wp-uploads-stats', $this->get_assets_url() . 'js/main.js', array('jquery', 'jquery-shapeshift'));
+
+		// pass module settings to main script
+		wp_localize_script('wp-uploads-stats', 'WPUS', array(
+			'settings' => $this->get_module_settings_manager()->get()
+		));
 	}
 
 	/**
