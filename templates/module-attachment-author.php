@@ -3,10 +3,7 @@ $data = $wp_uploads_module->get_data();
 $module_name = $wp_uploads_module->get_name();
 ?>
 <div class="wp-uploads-stats-module wp-uploads-stats-module-<?php echo $module_name; ?>" id="wpus-module-<?php echo $module_name; ?>">
-	<?php 
-	$title = 'Attachments by Author';
-	$wp_uploads_module->render_head($title); 
-	?>
+	<?php $wp_uploads_module->render_head(); ?>
 	
 	<div class="module-inner <?php echo $wp_uploads_module->is_hidden() ? 'hidden' : ''; ?>">
 		<table>
