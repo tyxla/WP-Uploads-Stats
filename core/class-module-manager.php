@@ -42,8 +42,10 @@ class WP_Uploads_Stats_Module_Manager {
 
 		// initialize the modules
 		$modules = array();
-		foreach ($module_names as $module_name => $class_name) {
-			$modules[] = new $class_name($module_name);
+		foreach ($module_names as $module_name => $module_settings) {
+			$class_name = $module_settings['class'];
+			$module_title = $module_settings['title'];
+			$modules[] = new $class_name($module_name, $module_title);
 		}
 
 		// register the modules
