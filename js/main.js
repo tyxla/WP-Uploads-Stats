@@ -14,9 +14,9 @@ jQuery(function($) {
 
 	// initialize main page shapeshift
 	$shapeshift_wrapper = $('.wp-uploads-stats-modules');
-	if ($shapeshift_wrapper.length) {
+	if ($shapeshift_wrapper.length && $('.wp-uploads-stats-module:visible')) {
 		$shapeshift_wrapper.shapeshift({
-			selector: '.wp-uploads-stats-module',
+			selector: '.wp-uploads-stats-module:visible',
 			handle: '.drag-handle',
 			align: 'left',
 			gutterX: 20,
@@ -25,6 +25,16 @@ jQuery(function($) {
 			paddingY: 0
 		});
 	}
+
+	// hide all modules that should be hidden
+	for(module in WPUS.settings) {
+		if (WPUS.settings[module].enabled == 0) {
+			$('#wpus-module-' + module).hide();
+		}
+	}
+
+	// rearrange shapeshift after hiding modules
+	$shapeshift_wrapper.trigger("ss-rearrange");
 
 	// on shapeshift drop
 	$shapeshift_wrapper.on('ss-drop-complete', function() {
@@ -79,7 +89,8 @@ jQuery(function($) {
 		// go through all modules
 		$('.wp-uploads-stats-module').each(function(index) {
 			var id = $(this).attr('id').replace('wpus-module-', ''),
-				visible = $(this).find('.module-inner').hasClass('hidden') ? 0 : 1;
+				visible = $(this).find('.module-inner').hasClass('hidden') ? 0 : 1,
+				enabled = $('#toggle-module-' + id).is(':checked') ? 1 : 0;
 
 			// save the order and visibility of each module
 			Object.defineProperty(settings, id, {
@@ -88,7 +99,8 @@ jQuery(function($) {
 				writable: true,
 				value: {
 					order: index,
-					visibility: visible
+					visibility: visible,
+					enabled: enabled
 				}
 			});
 		});
@@ -126,6 +138,18 @@ jQuery(function($) {
 	// module drag & drop - prevent default
 	$('.wpus-icon.drag-handle').on('click', function(e) {
 		e.preventDefault();
+	});
+
+	// toggle modules from screen options
+	$('.hide-wpus-module-tog').on('change', function() {
+		var id = $(this).attr('id').replace('toggle-module-', '');
+		$('#wpus-module-' + id).toggle();
+
+		// trigger shapeshift rearrange
+		$shapeshift_wrapper.trigger("ss-rearrange");
+
+		// save module settings
+		save_module_settings();
 	});
 
 	// this is where we store the charts
