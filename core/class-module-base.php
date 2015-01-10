@@ -14,6 +14,15 @@ abstract class WP_Uploads_Stats_Module_Base {
 	protected $name;
 
 	/**
+	 * Module title.
+	 *
+	 * @access protected
+	 *
+	 * @var string
+	 */
+	protected $title;
+
+	/**
 	 * Module data.
 	 *
 	 * @access protected
@@ -31,8 +40,9 @@ abstract class WP_Uploads_Stats_Module_Base {
 	 *
 	 * @param string $name The module name.
 	 */
-	public function __construct($name) {
+	public function __construct($name, $title) {
 		$this->set_name($name);
+		$this->set_title($title);
 	}
 
 	/**
@@ -66,13 +76,11 @@ abstract class WP_Uploads_Stats_Module_Base {
 	 * Render the module head section.
 	 *
 	 * @access public
-	 * 
-	 * @param string $title The module title.
 	 */
-	public function render_head($title) {
+	public function render_head() {
 		?>
 		<div class="module-head">
-			<h3><?php echo $title; ?></h3>
+			<h3><?php echo $this->get_title(); ?></h3>
 			<a href="#" class="wpus-icon dashicons <?php echo $this->is_hidden() ? 'dashicons-editor-expand' : 'dashicons-minus'; ?> toggle"></a>
 			<a href="#" class="wpus-icon dashicons dashicons-screenoptions drag-handle"></a>
 		</div>
@@ -116,6 +124,28 @@ abstract class WP_Uploads_Stats_Module_Base {
 	 */
 	public function set_name($name) {
 		$this->name = $name;
+	}
+
+	/**
+	 * Retrieve the module title.
+	 *
+	 * @access public
+	 *
+	 * @return string $title The module title.
+	 */
+	public function get_title() {
+		return $this->title;
+	}
+
+	/**
+	 * Modify the module title.
+	 *
+	 * @access public
+	 *
+	 * @param string $title The new module title.
+	 */
+	public function set_title($title) {
+		$this->title = $title;
 	}
 
 	/**
