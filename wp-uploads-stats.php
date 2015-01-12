@@ -246,6 +246,10 @@ class WP_Uploads_Stats {
 				'class' => 'WP_Uploads_Stats_Module_Attachment_Post_Type_Chart',
 				'title' => 'Attachments by Post Type - Chart',
 			),
+			'attachment-by-month-year' => array(
+				'class' => 'WP_Uploads_Stats_Module_Attachment_By_Month_Year',
+				'title' => 'Attachments by Month/Year',
+			),
 		);
 	}
 
