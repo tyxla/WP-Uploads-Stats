@@ -41,6 +41,15 @@ class WP_Uploads_Stats {
 	protected $module_manager;
 
 	/**
+	 * The admin menu manager.
+	 *
+	 * @access protected
+	 *
+	 * @var WP_Uploads_Stats_Admin_Menu
+	 */
+	protected $admin_menu_manager;
+
+	/**
 	 * The module settings manager.
 	 *
 	 * @access protected
@@ -78,6 +87,9 @@ class WP_Uploads_Stats {
 
 		// initialize module manager
 		$this->set_module_manager(new WP_Uploads_Stats_Module_Manager());
+
+		// initialize admin menu
+		$this->set_admin_menu_manager(new WP_Uploads_Stats_Admin_Menu());
 
 		// initialize module settings manager
 		$this->set_module_settings_manager(new WP_Uploads_Stats_Module_Settings());
@@ -119,6 +131,28 @@ class WP_Uploads_Stats {
 	 */
 	public function set_module_manager($module_manager) {
 		$this->module_manager = $module_manager;
+	}
+
+	/**
+	 * Retrieve the admin menu manager.
+	 *
+	 * @access public
+	 *
+	 * @return WP_Uploads_Stats_Admin_Menu $admin_menu_manager The admin menu manager.
+	 */
+	public function get_admin_menu_manager() {
+		return $this->admin_menu_manager;
+	}
+
+	/**
+	 * Modify the admin menu manager.
+	 *
+	 * @access public
+	 *
+	 * @param WP_Uploads_Stats_Admin_Menu $admin_menu_manager The new admin menu manager.
+	 */
+	public function set_admin_menu_manager($admin_menu_manager) {
+		$this->admin_menu_manager = $admin_menu_manager;
 	}
 
 	/**
@@ -263,6 +297,7 @@ class WP_Uploads_Stats {
 		require_once($this->get_plugin_path() . '/core/class-module-base.php');
 		require_once($this->get_plugin_path() . '/core/class-module-settings.php');
 		require_once($this->get_plugin_path() . '/core/class-module-screen-options.php');
+		require_once($this->get_plugin_path() . '/core/class-admin-menu.php');
 
 		require_once($this->get_plugin_path() . '/core/class-directory-file-iterator.php');
 
