@@ -88,6 +88,9 @@ class WP_Uploads_Stats {
 		// initialize admin menu
 		$this->set_admin_menu_manager(new WP_Uploads_Stats_Admin_Menu());
 
+		// initialize module settings manager
+		$this->set_module_settings_manager(new WP_Uploads_Stats_Module_Settings());
+
 		// make sure nothing unnecessary is done outside of the plugin main page
 		if ( !WP_Uploads_Stats_Admin_Menu::in_plugin_page() ) {
 			return;
@@ -95,9 +98,6 @@ class WP_Uploads_Stats {
 
 		// initialize module manager
 		$this->set_module_manager(new WP_Uploads_Stats_Module_Manager());
-
-		// initialize module settings manager
-		$this->set_module_settings_manager(new WP_Uploads_Stats_Module_Settings());
 
 		// initialize screen settings manager
 		$this->set_screen_settings_manager(new WP_Uploads_Stats_Module_Screen_Options());
