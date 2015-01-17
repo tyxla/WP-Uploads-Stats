@@ -1,11 +1,13 @@
 <?php
 /**
  * Plugin Name: WP Uploads Stats
- * Description: Provides you with detailed statistics about your WordPress uploads.
+ * Description: Provides you with detailed statistics about your WordPress media uploads and attachments.
  * Version: 1.0
  * Author: tyxla
  * Author URI: https://github.com/tyxla
  * License: GPL2
+ * Requires at least: 3.0.1
+ * Tested up to: 4.1
  */
 
 /**
