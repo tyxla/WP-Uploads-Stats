@@ -1,0 +1,160 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Uploads Stats\n"
+"POT-Creation-Date: 2015-01-18 00:17+0200\n"
+"PO-Revision-Date: 2015-01-18 00:38+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: bg_BG\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: core/class-admin-menu.php:28
+msgid "Uploads Stats"
+msgstr "Файлова статистика"
+
+#: core/class-module-base.php:84
+msgid "Minimize / Restore"
+msgstr "Минимизирай / Уголеми"
+
+#: core/class-module-base.php:85
+msgid "Move"
+msgstr "Премести"
+
+#: core/class-module-screen-options.php:28
+msgid "Toggle Modules"
+msgstr "Включване и изключване на модули"
+
+#: core/class-module-screen-options.php:29
+msgid ""
+"Uncheck a box to hide a certain statistics module and check it again to show "
+"it."
+msgstr ""
+"Махнете отметката от квадратчето, за да скриете някой модул и я сложете "
+"отново, за да го покажете."
+
+#: modules/attachment-post-type/module.php:31
+msgid "None (Unattached)"
+msgstr "Никакъв (неприкачен)"
+
+#: modules/overview/module.php:59 templates/module-size-by-year.php:13
+msgid "Total Size"
+msgstr "Общ размер"
+
+#: modules/overview/module.php:60
+msgid "Total Size (bytes)"
+msgstr "Общ размер (байтове)"
+
+#: modules/overview/module.php:61
+msgid "Total Number of Files"
+msgstr "Общ брой файлове"
+
+#: modules/overview/module.php:62
+msgid "Total Number of Directories"
+msgstr "Общ брой директории"
+
+#: modules/overview/module.php:63
+msgid "Total Attachments"
+msgstr "Общо прикачени файлове"
+
+#: modules/overview/module.php:64
+msgid "Total Attachment Authors"
+msgstr "Общо автори с файлове"
+
+#: templates/module-attachment-author.php:12
+msgid "Author"
+msgstr "Автор"
+
+#: templates/module-attachment-author.php:13
+#: templates/module-attachment-by-year.php:13
+#: templates/module-attachment-post-type.php:13
+#: templates/module-attachment-type.php:13
+msgid "Count"
+msgstr "Брой"
+
+#: templates/module-attachment-by-year.php:12
+#: templates/module-size-by-year.php:12
+msgid "Year"
+msgstr "Година"
+
+#: templates/module-attachment-post-type.php:12
+msgid "Post type attached to"
+msgstr "Прикачени към тип данни"
+
+#: templates/module-attachment-type.php:12
+msgid "Type"
+msgstr "Тип"
+
+#: templates/module-file-type.php:14
+msgid "File type"
+msgstr "Тип на файла"
+
+#: templates/module-file-type.php:15
+msgid "Number of files"
+msgstr "Брой файлове"
+
+#: wp-uploads-stats.php:255
+msgid "Overview"
+msgstr "Общ преглед"
+
+#: wp-uploads-stats.php:259
+msgid "Files by Type"
+msgstr "Файлове по тип"
+
+#: wp-uploads-stats.php:263
+msgid "Files by Type - Chart"
+msgstr "Файлове по тип - графика"
+
+#: wp-uploads-stats.php:267
+msgid "Size by Year"
+msgstr "Размер по година"
+
+#: wp-uploads-stats.php:271
+msgid "Size by Year - Chart"
+msgstr "Размер по година - графика"
+
+#: wp-uploads-stats.php:275
+msgid "Attachments by Type"
+msgstr "Файлове по тип"
+
+#: wp-uploads-stats.php:279
+msgid "Attachments by Type - Chart"
+msgstr "Файлове по тип - графика"
+
+#: wp-uploads-stats.php:283
+msgid "Attachments by Author"
+msgstr "Файлове по автор"
+
+#: wp-uploads-stats.php:287
+msgid "Attachments by Author - Chart"
+msgstr "Файлове по автор - графика"
+
+#: wp-uploads-stats.php:291
+msgid "Attachments by Year"
+msgstr "Файлове по година"
+
+#: wp-uploads-stats.php:295
+msgid "Attachments by Year - Chart"
+msgstr "Файлове по година - графика"
+
+#: wp-uploads-stats.php:299
+msgid "Attachments by Post Type"
+msgstr "Файлове по тип данни"
+
+#: wp-uploads-stats.php:303
+msgid "Attachments by Post Type - Chart"
+msgstr "Файлове по тип данни - графика"
+
+#: wp-uploads-stats.php:307
+msgid "Attachments by Month/Year"
+msgstr "Файлове по месец/година"
