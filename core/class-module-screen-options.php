@@ -25,8 +25,8 @@ class WP_Uploads_Stats_Module_Screen_Options {
 
 		$module_settings = $wp_uploads_stats->get_module_settings_manager()->get();
 
-		$settings .= '<h5>Toggle Modules</h5>';
-		$settings .= '<p>Uncheck a box to hide a certain statistics module and check it again to show it.</p>';
+		$settings .= '<h5>' . __('Toggle Modules', 'wp-uploads-stats') . '</h5>';
+		$settings .= '<p>' . __('Uncheck a box to hide a certain statistics module and check it again to show it.', 'wp-uploads-stats') . '</p>';
 
 		$modules = $wp_uploads_stats->get_module_manager()->get_modules();
 		foreach ($modules as $module) {

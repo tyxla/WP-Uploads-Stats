@@ -81,8 +81,8 @@ abstract class WP_Uploads_Stats_Module_Base {
 		?>
 		<div class="module-head">
 			<h3><?php echo $this->get_title(); ?></h3>
-			<a href="#" title="Minimize / Restore" class="wpus-icon dashicons <?php echo $this->is_hidden() ? 'dashicons-editor-expand' : 'dashicons-minus'; ?> toggle"></a>
-			<a href="#" title="Move" class="wpus-icon dashicons dashicons-screenoptions drag-handle"></a>
+			<a href="#" title="<?php esc_attr_e('Minimize / Restore', 'wp-uploads-stats'); ?>" class="wpus-icon dashicons <?php echo $this->is_hidden() ? 'dashicons-editor-expand' : 'dashicons-minus'; ?> toggle"></a>
+			<a href="#" title="<?php esc_attr_e('Move', 'wp-uploads-stats'); ?>" class="wpus-icon dashicons dashicons-screenoptions drag-handle"></a>
 		</div>
 		<?php
 	}

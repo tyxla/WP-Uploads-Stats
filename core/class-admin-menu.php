@@ -25,7 +25,7 @@ class WP_Uploads_Stats_Admin_Menu {
 	 */
 	public static function get_menu_title() {
 		// allow filtering the title of the submenu page
-		$menu_title = apply_filters('wp_uploads_stats_menu_item_title', 'Uploads Stats');
+		$menu_title = apply_filters('wp_uploads_stats_menu_item_title', __('Uploads Stats', 'wp-uploads-stats'));
 
 		return $menu_title;
 	}
@@ -38,8 +38,7 @@ class WP_Uploads_Stats_Admin_Menu {
 	 * @return string $menu_id The ID (slug) of the submenu item.
 	 */
 	public static function get_menu_id() {
-		$menu_title = self::get_menu_title();
-		return 'wpus-' . sanitize_title_with_dashes($menu_title);
+		return 'wpus-uploads-stats';
 	}
 
 	/**
