@@ -1,14 +1,16 @@
 <?php
-/**
- * Plugin Name: WP Uploads Stats
- * Description: Provides you with detailed statistics about your WordPress media uploads and attachments.
- * Version: 1.0
- * Author: tyxla
- * Author URI: https://github.com/tyxla
- * License: GPL2
- * Requires at least: 3.8
- * Tested up to: 4.1
- */
+/*
+Plugin Name: WP Uploads Stats
+Description: Provides you with detailed statistics about your WordPress media uploads and attachments.
+Version: 1.0
+Author: tyxla
+Author URI: https://github.com/tyxla
+License: GPL2
+Requires at least: 3.8
+Tested up to: 4.1
+Text Domain: wp-uploads-stats
+Domain Path: /languages
+*/
 
 /**
  * Main plugin class.
@@ -78,6 +80,9 @@ class WP_Uploads_Stats {
 	 */
 	public function __construct() {
 
+		// hook our plugins_loaded function
+		add_action('plugins_loaded', array($this, 'plugins_loaded'));
+
 		// set the path to the plugin main directory
 		$this->set_plugin_path(dirname(__FILE__));
 
@@ -117,6 +122,16 @@ class WP_Uploads_Stats {
 		add_action('admin_enqueue_scripts', array($this, 'enqueue_styles'));
 
 	}
+
+	/**
+	 * Called upon WordPress' "plugins_loaded" action.
+	 *
+	 * @access public
+	 */
+	public function plugins_loaded() {
+		// initialize translations
+		load_plugin_textdomain( 'wp-uploads-stats', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	}	
 
 	/**
 	 * Retrieve the module manager.
@@ -237,59 +252,59 @@ class WP_Uploads_Stats {
 		return array(
 			'overview' => array(
 				'class' => 'WP_Uploads_Stats_Module_Overview',
-				'title' => 'Overview',
+				'title' => __('Overview', 'wp-uploads-stats'),
 			),
 			'file-type' => array(
 				'class' => 'WP_Uploads_Stats_Module_File_Type',
-				'title' => 'Files by Type',
+				'title' => __('Files by Type', 'wp-uploads-stats'),
 			),
 			'file-type-chart' => array(
 				'class' => 'WP_Uploads_Stats_Module_File_Type_Chart',
-				'title' => 'Files by Type - Chart',
+				'title' => __('Files by Type - Chart', 'wp-uploads-stats'),
 			),
 			'size-by-year' => array(
 				'class' => 'WP_Uploads_Stats_Module_Size_By_Year',
-				'title' => 'Size by Year',
+				'title' => __('Size by Year', 'wp-uploads-stats'),
 			),
 			'size-by-year-chart' => array(
 				'class' => 'WP_Uploads_Stats_Module_Size_By_Year_Chart',
-				'title' => 'Size by Year - Chart',
+				'title' => __('Size by Year - Chart', 'wp-uploads-stats'),
 			),
 			'attachment-type' => array(
 				'class' => 'WP_Uploads_Stats_Module_Attachment_Type',
-				'title' => 'Attachments by Type',
+				'title' => __('Attachments by Type', 'wp-uploads-stats'),
 			),
 			'attachment-type-chart' => array(
 				'class' => 'WP_Uploads_Stats_Module_Attachment_Type_Chart',
-				'title' => 'Attachments by Type - Chart',
+				'title' => __('Attachments by Type - Chart', 'wp-uploads-stats'),
 			),
 			'attachment-author' => array(
 				'class' => 'WP_Uploads_Stats_Module_Attachment_Author',
-				'title' => 'Attachments by Author',
+				'title' => __('Attachments by Author', 'wp-uploads-stats'),
 			),
 			'attachment-author-chart' => array(
 				'class' => 'WP_Uploads_Stats_Module_Attachment_Author_Chart',
-				'title' => 'Attachments by Author - Chart',
+				'title' => __('Attachments by Author - Chart', 'wp-uploads-stats'),
 			),
 			'attachment-by-year' => array(
 				'class' => 'WP_Uploads_Stats_Module_Attachment_By_Year',
-				'title' => 'Attachments by Year',
+				'title' => __('Attachments by Year', 'wp-uploads-stats'),
 			),
 			'attachment-by-year-chart' => array(
 				'class' => 'WP_Uploads_Stats_Module_Attachment_By_Year_Chart',
-				'title' => 'Attachments by Year - Chart',
+				'title' => __('Attachments by Year - Chart', 'wp-uploads-stats'),
 			),
 			'attachment-post-type' => array(
 				'class' => 'WP_Uploads_Stats_Module_Attachment_Post_Type',
-				'title' => 'Attachments by Post Type',
+				'title' => __('Attachments by Post Type', 'wp-uploads-stats'),
 			),
 			'attachment-post-type-chart' => array(
 				'class' => 'WP_Uploads_Stats_Module_Attachment_Post_Type_Chart',
-				'title' => 'Attachments by Post Type - Chart',
+				'title' => __('Attachments by Post Type - Chart', 'wp-uploads-stats'),
 			),
 			'attachment-by-month-year' => array(
 				'class' => 'WP_Uploads_Stats_Module_Attachment_By_Month_Year',
-				'title' => 'Attachments by Month/Year',
+				'title' => __('Attachments by Month/Year', 'wp-uploads-stats'),
 			),
 		);
 	}
