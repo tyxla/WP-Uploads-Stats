@@ -1,0 +1,158 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Uploads Stats\n"
+"POT-Creation-Date: 2015-01-18 00:17+0200\n"
+"PO-Revision-Date: 2015-01-18 00:17+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: core/class-admin-menu.php:28
+msgid "Uploads Stats"
+msgstr ""
+
+#: core/class-module-base.php:84
+msgid "Minimize / Restore"
+msgstr ""
+
+#: core/class-module-base.php:85
+msgid "Move"
+msgstr ""
+
+#: core/class-module-screen-options.php:28
+msgid "Toggle Modules"
+msgstr ""
+
+#: core/class-module-screen-options.php:29
+msgid ""
+"Uncheck a box to hide a certain statistics module and check it again to show "
+"it."
+msgstr ""
+
+#: modules/attachment-post-type/module.php:31
+msgid "None (Unattached)"
+msgstr ""
+
+#: modules/overview/module.php:59 templates/module-size-by-year.php:13
+msgid "Total Size"
+msgstr ""
+
+#: modules/overview/module.php:60
+msgid "Total Size (bytes)"
+msgstr ""
+
+#: modules/overview/module.php:61
+msgid "Total Number of Files"
+msgstr ""
+
+#: modules/overview/module.php:62
+msgid "Total Number of Directories"
+msgstr ""
+
+#: modules/overview/module.php:63
+msgid "Total Attachments"
+msgstr ""
+
+#: modules/overview/module.php:64
+msgid "Total Attachment Authors"
+msgstr ""
+
+#: templates/module-attachment-author.php:12
+msgid "Author"
+msgstr ""
+
+#: templates/module-attachment-author.php:13
+#: templates/module-attachment-by-year.php:13
+#: templates/module-attachment-post-type.php:13
+#: templates/module-attachment-type.php:13
+msgid "Count"
+msgstr ""
+
+#: templates/module-attachment-by-year.php:12
+#: templates/module-size-by-year.php:12
+msgid "Year"
+msgstr ""
+
+#: templates/module-attachment-post-type.php:12
+msgid "Post type attached to"
+msgstr ""
+
+#: templates/module-attachment-type.php:12
+msgid "Type"
+msgstr ""
+
+#: templates/module-file-type.php:14
+msgid "File type"
+msgstr ""
+
+#: templates/module-file-type.php:15
+msgid "Number of files"
+msgstr ""
+
+#: wp-uploads-stats.php:255
+msgid "Overview"
+msgstr ""
+
+#: wp-uploads-stats.php:259
+msgid "Files by Type"
+msgstr ""
+
+#: wp-uploads-stats.php:263
+msgid "Files by Type - Chart"
+msgstr ""
+
+#: wp-uploads-stats.php:267
+msgid "Size by Year"
+msgstr ""
+
+#: wp-uploads-stats.php:271
+msgid "Size by Year - Chart"
+msgstr ""
+
+#: wp-uploads-stats.php:275
+msgid "Attachments by Type"
+msgstr ""
+
+#: wp-uploads-stats.php:279
+msgid "Attachments by Type - Chart"
+msgstr ""
+
+#: wp-uploads-stats.php:283
+msgid "Attachments by Author"
+msgstr ""
+
+#: wp-uploads-stats.php:287
+msgid "Attachments by Author - Chart"
+msgstr ""
+
+#: wp-uploads-stats.php:291
+msgid "Attachments by Year"
+msgstr ""
+
+#: wp-uploads-stats.php:295
+msgid "Attachments by Year - Chart"
+msgstr ""
+
+#: wp-uploads-stats.php:299
+msgid "Attachments by Post Type"
+msgstr ""
+
+#: wp-uploads-stats.php:303
+msgid "Attachments by Post Type - Chart"
+msgstr ""
+
+#: wp-uploads-stats.php:307
+msgid "Attachments by Month/Year"
+msgstr ""
