@@ -85,11 +85,16 @@ class WP_Uploads_Stats {
 		// include all plugin files
 		$this->include_files();
 
-		// initialize module manager
-		$this->set_module_manager(new WP_Uploads_Stats_Module_Manager());
-
 		// initialize admin menu
 		$this->set_admin_menu_manager(new WP_Uploads_Stats_Admin_Menu());
+
+		// make sure nothing unnecessary is done outside of the plugin main page
+		if ( !WP_Uploads_Stats_Admin_Menu::in_plugin_page() ) {
+			return;
+		}
+
+		// initialize module manager
+		$this->set_module_manager(new WP_Uploads_Stats_Module_Manager());
 
 		// initialize module settings manager
 		$this->set_module_settings_manager(new WP_Uploads_Stats_Module_Settings());

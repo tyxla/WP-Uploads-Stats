@@ -21,6 +21,11 @@ class WP_Uploads_Stats_Module_Manager {
 	 */
 	public function __construct() {
 
+		// make sure nothing unnecessary is done outside of the plugin main page
+		if ( !WP_Uploads_Stats_Admin_Menu::in_plugin_page() ) {
+			return;
+		}
+
 		// load the modules
 		add_action('init', array($this, 'load'));
 

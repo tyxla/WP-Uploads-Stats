@@ -62,7 +62,25 @@ class WP_Uploads_Stats_Admin_Menu {
 	 */
 	public function render() {
 		global $wp_uploads_stats;
-		$wp_uploads_stats->get_module_manager()->render();
+		
+		// the modules will be rendered only if module manager is loaded
+		if ($module_manager = $wp_uploads_stats->get_module_manager()) {
+			$module_manager->render();
+		}
+	}
+
+	/**
+	 * Whether we're in the main plugin page.
+	 *
+	 * @access public
+	 * 
+	 * @return bool $bool True if we're in the main plugin page.
+	 */
+	public static function in_plugin_page() {
+		if ( !isset($_GET['page']) || $_GET['page'] !== self::get_menu_id() ) {
+			return false;
+		}
+		return true;
 	}
 
 }
