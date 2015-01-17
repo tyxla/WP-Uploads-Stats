@@ -56,12 +56,12 @@ class WP_Uploads_Stats_Module_Overview extends WP_Uploads_Stats_Module_Base {
 	 */
 	public function get_data_labels() {
 		return array(
-			'total_size' => 'Total Size',
-			'total_size_bytes' => 'Total Size (bytes)',
-			'total_files' => 'Total Number of Files',
-			'total_directories' => 'Total Number of Directories',
-			'total_attachments' => 'Total Attachments',
-			'total_authors' => 'Total Attachment Authors',
+			'total_size' => __('Total Size', 'wp-uploads-stats'),
+			'total_size_bytes' => __('Total Size (bytes)', 'wp-uploads-stats'),
+			'total_files' => __('Total Number of Files', 'wp-uploads-stats'),
+			'total_directories' => __('Total Number of Directories', 'wp-uploads-stats'),
+			'total_attachments' => __('Total Attachments', 'wp-uploads-stats'),
+			'total_authors' => __('Total Attachment Authors', 'wp-uploads-stats'),
 		);
 	}
 

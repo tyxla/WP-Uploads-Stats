@@ -28,7 +28,7 @@ class WP_Uploads_Stats_Module_Attachment_Post_Type extends WP_Uploads_Stats_Modu
 		foreach ($attachment_data as $result) {
 			$post_type = $result->post_type;
 			if (empty($post_type)) {
-				$post_type = 'None (Unattached)';
+				$post_type = __('None (Unattached)', 'wp-uploads-stats');
 			}
 
 			$data[$post_type] = $result->count;
