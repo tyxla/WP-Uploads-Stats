@@ -1,6 +1,6 @@
 <div class="wp-uploads-stats">
 	<div class="wrap">
-		<h2>Uploads Stats</h2>
+		<h2><?php echo WP_Uploads_Stats_Admin_Menu::get_menu_title(); ?></h2>
 
 		<div class="wp-uploads-stats-modules">
 			<?php 

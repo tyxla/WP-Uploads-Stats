@@ -9,8 +9,8 @@ $module_name = $wp_uploads_module->get_name();
 		<table>
 			<thead>
 				<tr>
-					<th class="tl sortable">Year</th>
-					<th class="tr sortable sortable-desc sortable-active">Total Size</th>
+					<th class="tl sortable"><?php _e('Year', 'wp-uploads-stats'); ?></th>
+					<th class="tr sortable sortable-desc sortable-active"><?php _e('Total Size', 'wp-uploads-stats'); ?></th>
 				</tr>
 			</thead>
 			<tbody>

@@ -11,8 +11,8 @@ $more = '...';
 		<table>
 			<thead>
 				<tr>
-					<th class="tl sortable">File type</th>
-					<th class="tr sortable sortable-desc sortable-active">Number of files</th>
+					<th class="tl sortable"><?php _e('File type', 'wp-uploads-stats'); ?></th>
+					<th class="tr sortable sortable-desc sortable-active"><?php _e('Number of files', 'wp-uploads-stats'); ?></th>
 				</tr>
 			</thead>
 			<tbody>
