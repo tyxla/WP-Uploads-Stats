@@ -39,6 +39,7 @@ abstract class WP_Uploads_Stats_Module_Base {
 	 * @access public
 	 *
 	 * @param string $name The module name.
+	 * @param string $title The module title.
 	 */
 	public function __construct($name, $title) {
 		$this->set_name($name);
