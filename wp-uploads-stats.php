@@ -7,7 +7,7 @@ Author: tyxla
 Author URI: https://github.com/tyxla
 License: GPL2
 Requires at least: 3.8
-Tested up to: 4.1
+Tested up to: 4.2
 Text Domain: wp-uploads-stats
 Domain Path: /languages
 */
