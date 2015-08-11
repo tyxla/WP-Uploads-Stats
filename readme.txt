@@ -2,8 +2,8 @@
 Contributors: tyxla
 Tags: wp, upload, stats, attachment, statistics, file, media
 Requires at least: 3.8
-Tested up to: 4.2
-Stable tag: 1.0
+Tested up to: 4.3
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,9 @@ If you have an idea for a new feature, or you want to report a bug, or you wish 
 https://github.com/tyxla/WP-Uploads-Stats/
 
 == Changelog ==
+
+= 1.0.1 =
+Tested with WordPress 4.3.
 
 = 1.0 =
 Initial version.
